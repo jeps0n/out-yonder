@@ -428,7 +428,7 @@ h1 span {
 }
 
 .meter {
-  padding: clamp(5px, .9dvh, 9px) 5px;
+  padding: clamp(6px, 1dvh, 10px) 5px;
   border: 1px solid #53778a;
   border-radius: 10px;
   background: #091d32;
@@ -483,13 +483,13 @@ h1 span {
 .meter span {
   display: block;
   margin-bottom: 3px;
-  font-size: 10px;
+  font-size: 11px;
   color: #a7c7cb;
   letter-spacing: .12em;
 }
 
 .meter strong {
-  font: 700 clamp(18px, min(2vw, 3dvh), 31px) 'Space Grotesk', sans-serif;
+  font: 700 clamp(20px, min(2.15vw, 3.2dvh), 33px) 'Space Grotesk', sans-serif;
 }
 
 /* Primary and secondary controls */
@@ -547,7 +547,7 @@ h1 span {
   border: 0;
   background: transparent;
   color: #b1d7d4;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 800;
   letter-spacing: .06em;
 }
@@ -556,17 +556,54 @@ h1 span {
   color: white;
 }
 
-.machine footer {
+/* Cabinet signature recess */
+.technical-signature {
+  display: flex;
   flex: 0 0 auto;
-  margin-top: clamp(3px, .8dvh, 8px);
-  color: #7ca8ad;
-  font-size: 9px;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  min-height: 27px;
+  margin: clamp(3px, .8dvh, 8px) auto 0;
+  padding: 5px 12px;
+  border: 1px solid rgb(4 13 24 / 55%);
+  border-radius: 5px;
+  background: linear-gradient(
+    180deg,
+    #071625 0%,
+    #091c2c 60%,
+    #0d2335 100%
+  );
+  box-shadow:
+    inset 0 3px 5px rgb(0 5 13 / 65%),
+    inset 2px 0 3px rgb(0 7 17 / 30%),
+    inset 0 -1px 0 rgb(124 156 167 / 19%),
+    0 1px 0 rgb(125 156 165 / 7%);
+  color: #84959F;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .035em;
   text-align: center;
-  letter-spacing: .07em;
 }
 
-.machine footer span {
-  padding: 0 5px;
+.signature-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(5px, .8vw, 12px);
+  white-space: nowrap;
+}
+
+.signature-author {
+  color: #AA886D;
+}
+
+.signature-divider {
+  color: #4F6974;
+}
+
+.signature-stack {
+  color: #6B969A;
 }
 
 /* Field guide */
@@ -672,8 +709,19 @@ dialog h3 {
   color: #90d5d0;
 }
 
-/* Responsive: scenery */
+/* Responsive: scenery and cabinet details */
 @media (max-width: 1350px) {
+  .technical-signature {
+    width: 94%;
+  }
+
+  .signature-content {
+    flex-wrap: wrap;
+    column-gap: 7px;
+    row-gap: 2px;
+    white-space: normal;
+  }
+
   .scene-caption,
   .scene-note {
     display: none;
@@ -758,6 +806,20 @@ dialog h3 {
 
   h1 {
     font-size: clamp(30px, min(9vw, 7dvh), 64px);
+  }
+}
+
+@media (max-width: 600px) {
+  .technical-signature {
+    width: 100%;
+    padding: 5px 8px;
+  }
+
+  .signature-content {
+    flex-wrap: wrap;
+    column-gap: 6px;
+    row-gap: 2px;
+    white-space: normal;
   }
 }
 

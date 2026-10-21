@@ -98,7 +98,14 @@ export function renderGameTemplate(host: HTMLElement): void {
             <button id="reset" type="button">RESET BALANCE</button>
           </div>
         </div>
-        <footer>OUT YONDER <span>•</span> FIXED ${WAGER}-CREDIT WAGER</footer>
+        <footer class="technical-signature" aria-label="Technical demonstration credits">
+          <span class="signature-content">
+            <span class="signature-label">TECHNICAL DEMONSTRATION BY</span>
+            <span class="signature-author">jeff samson</span>
+            <span class="signature-divider" aria-hidden="true">|</span>
+            <span class="signature-stack">TypeScript · Vite · PixiJS · GSAP</span>
+          </span>
+        </footer>
       </section>
 
       <section class="scene scene-right" aria-label="Neighbor landscape">
