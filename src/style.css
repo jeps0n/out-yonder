@@ -175,6 +175,22 @@ button:focus-visible {
   transform: rotate(5deg);
 }
 
+/* Scenery artwork */
+.distant-world img,
+.planet-small img,
+.explorer img,
+.alien img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.distant-world img,
+.explorer img,
+.alien img {
+  transform-origin: center center;
+}
+
 /* Game panel */
 .machine {
   position: relative;
@@ -289,15 +305,6 @@ h1 span {
 }
 
 /* Symbol artwork */
-.distant-world img,
-.planet-small img,
-.explorer img,
-.alien img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
 .symbol-art {
   display: block;
   width: min(78%, 100px);

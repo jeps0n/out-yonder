@@ -17,6 +17,7 @@ import {
   selectPayout,
 } from "../math/selectOutcome.ts";
 import type { Board } from "../math/types.ts";
+import { playCelebration } from "../rendering/celebrationAnimation.ts";
 import { animateSpin } from "../rendering/spinAnimation.ts";
 import { requireElement } from "../ui/elements.ts";
 import { createMeterFeedback } from "../ui/meterFeedback.ts";
@@ -95,6 +96,8 @@ export function initializeGame(): void {
     statusLabel.textContent = randomSlotPrompt("spinning");
     updateBalance();
 
+    let outcomeRevealed = false;
+
     try {
       const payout = selectPayout(randomIndex(TOTAL_TICKETS));
       const board = selectBoard(catalog, payout);
@@ -109,10 +112,14 @@ export function initializeGame(): void {
       });
 
       revealOutcome(payout, board, evaluation);
+      outcomeRevealed = true;
+      await playCelebration(evaluation);
     } catch {
-      balance += WAGER;
-      updateBalance();
-      statusLabel.textContent = randomSlotPrompt("error");
+      if (!outcomeRevealed) {
+        balance += WAGER;
+        updateBalance();
+        statusLabel.textContent = randomSlotPrompt("error");
+      }
     } finally {
       spinning = false;
       updateBalance();
