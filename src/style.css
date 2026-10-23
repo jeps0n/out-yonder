@@ -199,8 +199,7 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: max(680px, calc(100dvh - 32px));
-  min-height: 680px;
+  min-height: max(680px, calc(100dvh - 32px));
   min-width: 0;
   margin: 0;
   padding: clamp(10px, 1.5dvh, 17px) clamp(15px, 2vw, 32px) clamp(11px, 1.5dvh, 17px);
@@ -246,11 +245,10 @@ h1 span {
 
 .machine-content {
   display: flex;
-  flex: 1 1 auto;
+  flex: 1 0 auto;
   flex-direction: column;
   width: 100%;
   max-width: 600px;
-  min-height: 0;
   margin: 0 auto;
 }
 
@@ -269,9 +267,8 @@ h1 span {
 
 .reel-housing {
   display: flex;
-  flex: 1 1 auto;
+  flex: 1 0 330px;
   flex-direction: column;
-  min-height: 330px;
   padding: clamp(5px, 1dvh, 10px);
   border-radius: 16px;
   border: 3px solid #e4aa68;
@@ -798,8 +795,7 @@ dialog h3 {
 
   .machine {
     width: min(100%, 550px);
-    height: max(680px, calc(100dvh - 28px));
-    min-height: 680px;
+    min-height: max(680px, calc(100dvh - 28px));
     margin: auto;
     padding: 10px 12px;
   }
